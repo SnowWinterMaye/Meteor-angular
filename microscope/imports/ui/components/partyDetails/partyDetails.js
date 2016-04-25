@@ -2,6 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import {Parties} from '../../../api/parties';
+import {Meteor} from 'meteor/meteor';
 
 import './partyDetails.html'
 
@@ -16,18 +17,40 @@ class partyDetails{
         
         this.helpers({
             party(){
-                return Parties.findone({
+                return Parties.findOne({
                     _id:$stateParams.partyId
                 });
             }
         });
     }
+    save(){
+        Parties.update({
+            _id:this.party._id
+            },{
+                $set:{
+                name:this.party.name,
+                description:this.party.description
+            }
+        });
+    }
 }
+
+
+
 function config($stateProvider){
     'ngInject';
     $stateProvider.state('partyDetails',{
         url:'/parties/:partyId',
-        template:'<party-details></party-details>'
+        template:'<party-details></party-details>',
+        resolve:{
+            currentUser($q){
+                if(Meteor.userId()===null){
+                    return $q.reject('AUTH_REQUIRED');
+                }else{
+                    return $q.resolve();
+                }
+            }
+        }
     });
 }
 

@@ -17,14 +17,25 @@ function config($locationProvider,$urlRouterProvider){
     $urlRouterProvider.otherwise('/parties')
 }
 
+function run($rootScope,$state){
+    'ngInject';
+    $rootScope.$on('$stateChangeError',
+    (event,toState,toParams,fromState,fromParams,error)=>{
+        if(error === 'AUTH_REQUIRED'){
+            $state.go('parties');
+        }
+    })
+}
+
 export default angular.module(name,[
     angularMeteor,
     PartiesList,
     uiRouter,
     navigation,
-    partyDetails
+    partyDetails,
+    'accounts.ui'
     ]).component(name,{
         templateUrl: `imports/ui/components/${name}/${name}.html`,
         controllerAs:name,
         controller:Socially
-    }).config(config);
+    }).config(config).run(run);
