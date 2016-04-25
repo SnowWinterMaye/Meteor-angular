@@ -1,0 +1,16 @@
+    <party-add></party-add>
+    <ul>
+        <li ng-repeat="party in partiesList.parties">
+            <div class="box">
+                <div class="info">
+                    <a ui-sref="partyDetails({partyId:party._id})">
+                        <div>{{party.name}}</div>
+                        <div>{{party.description}}</div>
+                    </a>
+                </div>
+                <div class="delbtn">
+                <party-remove party="party"></party-remove> 
+                </div>
+            </div>
+        </li>
+    </ul>

@@ -1,0 +1,83 @@
+ .box {
+            position: relative;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .coin1 {
+            background: url("images/coin1.png") 0 0 no-repeat;
+            background-size: 60%;
+            height: 300px;
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            -webkit-animation: tobot 3s infinite;
+            -o-animation: tobot 3s infinite;
+            animation: tobot 3s infinite;
+        }
+        .bg {
+            background: url("images/bg.png") 0 0 no-repeat;
+            background-size: 60%;
+            height: 300px;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+
+        }
+        .bg2 {
+            background: url("images/bg2.png") 0 0 no-repeat;
+            background-size: 60%;
+            height: 300px;
+            position: absolute;
+            top: 60px;
+            width: 100%;
+
+        }
+        .coin2 {
+            background: url("images/coin2.png") 0 0 no-repeat;
+            background-size: 60%;
+            height: 300px;
+            position: absolute;
+            top: 115px;
+            left:-10px;
+            width: 100%;
+            -webkit-animation: totop 3s infinite;
+            -o-animation: totop 3s infinite;
+            animation: totop 3s infinite;
+        }
+        
+        @-webkit-keyframes totop {
+            from { background-position: 0 5px }
+            to { background-position: 0 0px }
+        }
+        @-o-keyframes totop {
+            from { background-position: 0 5px }
+            to { background-position: 0 0px }
+        }
+        @-moz-keyframes totop {
+            from { background-position: 0 5px }
+            to { background-position: 0 0px }
+        }
+        @keyframes totop {
+            from { background-position: 0 5px }
+            to { background-position: 0 0px }
+        }
+        
+        @-webkit-keyframes tobot {
+            from { background-position: 0 0px }
+            to { background-position: 0 5px }
+        }
+        @-o-keyframes tobot {
+            from { background-position: 0 0px }
+            to { background-position: 0 5px }
+        }
+        @-moz-keyframes tobot {
+            from { background-position: 0 0px }
+            to { background-position: 0 5px }
+        }
+        @keyframes tobot {
+            from { background-position: 0 0px }
+            to { background-position: 0 5px }
+        }

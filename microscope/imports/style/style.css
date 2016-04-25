@@ -1,0 +1,9 @@
+.box{
+    display: flex;
+}
+.info{
+    flex: 1;
+}
+.delbtn{
+    width: 30%;
+}
