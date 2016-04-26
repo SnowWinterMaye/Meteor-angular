@@ -2,20 +2,16 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
-import'./socially.html';
-import{ name as PartiesList} from '../partiesList/partiesList';
-import{ name as navigation} from '../navigation/navigation';
-import{ name as partyDetails} from '../partyDetails/partyDetails';
+import'./votepage.html';
 
+class Votepage{}
 
-class Socially{}
-
-const name = 'socially';
+const name = 'votepage';
 
 function config($locationProvider,$urlRouterProvider){
     'ngInject';
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise('/parties')
+    $urlRouterProvider.otherwise('/votepage')
 }
 
 function run($rootScope,$state){
@@ -23,20 +19,17 @@ function run($rootScope,$state){
     $rootScope.$on('$stateChangeError',
     (event,toState,toParams,fromState,fromParams,error)=>{
         if(error === 'AUTH_REQUIRED'){
-            $state.go('parties');
+            $state.go('votepage');
         }
     })
 }
 
 export default angular.module(name,[
     angularMeteor,
-    PartiesList,
     uiRouter,
-    navigation,
-    partyDetails,
     'accounts.ui'
     ]).component(name,{
-        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        templateUrl: `imports/ui/project/${name}/${name}.html`,
         controllerAs:name,
-        controller:Socially
+        controller:Votepage
     }).config(config).run(run);
