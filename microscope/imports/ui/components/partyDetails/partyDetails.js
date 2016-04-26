@@ -1,7 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
-import {Parties} from '../../../api/parties';
+import {Parties} from '../../../api/index';
 import {Meteor} from 'meteor/meteor';
 
 import './partyDetails.html'

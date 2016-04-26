@@ -2,7 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
-import {Parties} from '../../../api/parties';
+import {Parties} from '../../../api/index';
 import{ name as partyAdd} from '../partyAdd/partyAdd';
 import{ name as partyRemove} from '../partyRemove/partyRemove';
 
